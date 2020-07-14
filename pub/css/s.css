@@ -17,3 +17,8 @@ padding: 25px 0 25px 0;
 .banner{
 text-align:center;
 }
+.prods_block{
+    display: flex;
+    align-items: left;
+
+}
