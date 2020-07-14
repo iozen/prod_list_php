@@ -5,4 +5,19 @@
 	<title>Store sketch</title>
 </head>
 <body>
-	
+<header>
+<div class="container">
+<div class="header_inner">
+
+<div class="ht_menu">
+<a href="<?php echo $data['baseurl'];?>">Головна</a>
+<a href="<?php echo $data['baseurl']."product/";?>">Товари</a>
+
+</div>
+<div class="th_card">
+<img src="<?php echo $data['baseurl'];?>pub/img/card.svg"><br>
+кошик
+</div>
+</div>
+</div>
+</header>
