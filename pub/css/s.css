@@ -1,30 +1,58 @@
 body {
     margin: 0;
 }
+
 .container {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
 }
+
 header {
-padding: 25px 0 25px 0;
+    padding: 25px 0 25px 0;
 }
+
 .header_inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.banner{
-text-align:center;
+
+.banner {
+    text-align: center;
 }
-.prods_block{
+
+.prods_block {
     display: flex;
     align-items: left;
 
 }
-.pan_item{
-padding:3px;
+
+.prod {
+    padding: 15px;
 }
-.pan_active{
-background-color:#47d147;
+
+.pr_buy {
+    padding: 10px;
+    background-color: #47d147;
+    display: inline-block;
+}
+
+.pr_buy:hover {
+    background-color: #ffff00;
+    cursor: pointer;
+}
+
+.pr_price {
+    padding: 10px;
+    background-color: #ffff80;
+    display: inline-block;
+}
+
+.pan_item {
+    padding: 3px;
+}
+
+.pan_active {
+    background-color: #47d147;
 }

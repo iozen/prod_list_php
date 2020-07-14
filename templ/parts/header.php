@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Store sketch</title>
-        <link rel="stylesheet" href="<?php echo $data['baseurl']; ?>pub/css/s.css" />
+	<link rel="stylesheet" href="<?php echo $data['baseurl']; ?>pub/css/s.css" />
 </head>
 <body>
 <header>
@@ -12,7 +12,7 @@
 
 <div class="ht_menu">
 <a href="<?php echo $data['baseurl'];?>">Головна</a>
-<a href="<?php echo $data['baseurl']."product/";?>">Товари</a>
+<a href="<?php echo $data['baseurl']."product_list/";?>">Товари</a>
 
 </div>
 <div class="th_card">
