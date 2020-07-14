@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Store sketch</title>
+        <link rel="stylesheet" href="<?php echo $data['baseurl']; ?>pub/css/s.css" />
 </head>
 <body>
 <header>

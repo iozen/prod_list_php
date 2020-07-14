@@ -22,3 +22,9 @@ text-align:center;
     align-items: left;
 
 }
+.pan_item{
+padding:3px;
+}
+.pan_active{
+background-color:#47d147;
+}
