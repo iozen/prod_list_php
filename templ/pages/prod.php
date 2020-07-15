@@ -3,6 +3,6 @@
 <img src="<?php echo $data['baseurl'] . $pr['img'];?>"><br>
 <?php echo  $pr['about'];?><br>
 <span class="pr_price"> ціна <?php echo $pr['price'];?></span><br>
-<span class="pr_buy" pr_id="<?php echo $pr['id'];?>">купити</span>
+<span class="pr_buy" pr_id="<?php echo $pr['id'];?>" id="buy_it">купити</span>
 </div>
 
