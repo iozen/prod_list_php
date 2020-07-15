@@ -56,17 +56,17 @@ function edit_card(params) {
 
     $('body').on('click', '.add_quan', function() {
         id = $(this).attr('id_item');
-        update_card_request(id, 'add_quan', 'normal');
+        update_card_request(id, 'add_quan', 'silent');
     });
     $('body').on('click', '.remove_quan', function() {
 
         id = $(this).attr('id_item');
-        update_card_request(id, 'remove_quan', 'normal');
+        update_card_request(id, 'remove_quan', 'silent');
 
     });
     $('body').on('click', '.r_card_item', function() {
         id = $(this).attr('id_item');
-        update_card_request(id, 'r_card_item', 'normal');
+        update_card_request(id, 'r_card_item', 'silent');
 
     });
 

@@ -21,7 +21,7 @@ var params = {
 
 </div>
 <a href="#" class="close_card pr_buy">Продовжити купувати</a>
-<a href="<?php $data['baseurl'];?>/checkout/" class="pr_buy">Оформити замовлення</a>
+<a href="<?php echo $data['baseurl'];?>checkout/" class="pr_buy">Оформити замовлення</a>
 </div>
 <div class="container">
 <div class="header_inner">

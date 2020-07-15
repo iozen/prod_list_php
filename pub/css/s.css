@@ -55,3 +55,32 @@ header {
 .pan_active {
     background-color: #47d147;
 }
+
+.checkout_cont {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout_cont_but {
+    padding-top: 35px;
+    text-align: center;
+}
+
+.remove_quan {
+    padding: 5px;
+    background-color: #4d94ff;
+    cursor:pointer;
+}
+
+.add_quan {
+    padding: 5px;
+    background-color: #4d94ff;
+    cursor:pointer;
+}
+.r_card_item{
+    padding: 5px;
+    background-color: #ff1a1a;
+    cursor:pointer;
+
+}
