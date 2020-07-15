@@ -1,6 +1,6 @@
 <?php 
 function buy($id, $prod){
-	if(empty($prod['quantity'])){$prod['quantity'] = 1;}
+	$prod['quantity'] = 1;
 	$prods_array = get_prods_array();
 	$push_status = true;
 
@@ -10,12 +10,11 @@ function buy($id, $prod){
 			$push_status = false;
 		}
 	}
+
 	if($push_status == true){
 		array_push($prods_array, $prod);
 	}
-	
-	set_coo('prods_array', $prods_array);
-	return $prods_array;
+	$_SESSION['prods_array'] = $prods_array;
 }
 function get_prod($id){
 
@@ -29,9 +28,8 @@ function get_prods_array(){
 
 	$prods_array = array();
 
-	if(!empty(get_coo('prods_array'))){
-		$prods_array = get_coo('prods_array');
+	if(!empty($_SESSION['prods_array'])){
+		$prods_array = $_SESSION['prods_array'];
 	}
-
 	return $prods_array;
 }
