@@ -3,7 +3,6 @@ function buy($id, $prod){
 	$prod['quantity'] = 1;
 	$prods_array = get_prods_array();
 	$push_status = true;
-
 	foreach($prods_array as $k => $v){
 		if($prod['id'] == $v['id']){
 			$prods_array[$k]['quantity']++;
