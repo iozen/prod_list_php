@@ -3,7 +3,7 @@
 <div class="prods_block">
 <?php
 foreach($prods as $v){
-	include('../templ/parts/prod.php');
+	include('../view/parts/prod.php');
 }
 ?>
 

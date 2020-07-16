@@ -1,11 +1,12 @@
 <?php 
 include_once('../init.php');
-include_once('../templ/parts/header.php');
+
+part('header');
 
 $cur_page = 1;
 
 $q = "select count(*) as count from prods;";
-$prods_c = put_query($q);
+$prods_c = $db->put_query($q);
 $pages = ceil($prods_c[0]['count'] / $data['prod_per_page']);
 $limit = $data['prod_per_page'];
 
@@ -19,8 +20,8 @@ if(!empty($_GET['page'])) {
 	}
 }
 
-$prods = put_query($q);
+$prods = $db->put_query($q);
 
-include_once('../templ/pages/prod_list.php');
+include_once('../view/pages/prod_list.php');
 
-include_once('../templ/parts/footer.php');
+part('footer');

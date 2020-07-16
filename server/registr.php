@@ -5,8 +5,8 @@ session_cache_expire(1440);
 session_start();
 
 include_once('../init.php');
-include_once('../app/tools.php');
-include_once('../app/server.php');
+include_once('../app/mod/tools.php');
+include_once('fun.php');
 
 $res = array(
 	'status'=>0,
@@ -18,14 +18,14 @@ $res = array(
 if(!empty($_GET['buy'])) {
 
 	$id = $_GET['buy'];
-	$prod = $server->get_prod($id);
+	$prod = get_prod($id);
 
-	$server->buy($id,$prod);
+	buy($id,$prod);
 	$prods_array = $_SESSION['prods_array'];
 
 	$res['data'] = $prods_array; 
 	$res['status'] = "ok";
-	$tools->echo_json($res);
+	echo_json($res);
 }
 if(!empty($_GET['add_quan'])){
 	$id = $_GET['add_quan'];
@@ -38,7 +38,7 @@ if(!empty($_GET['add_quan'])){
 	$_SESSION['prods_array'] = $prods_array;
 	$res['data'] = $prods_array; 
 	$res['status'] = "ok";
-	$tools->echo_json($res);
+	echo_json($res);
 
 }
 
@@ -54,7 +54,7 @@ if(!empty($_GET['remove_quan'])){
 	$_SESSION['prods_array'] = $prods_array;
 	$res['data'] = $prods_array; 
 	$res['status'] = "ok";
-	$tools->echo_json($res);
+	echo_json($res);
 
 }
 
@@ -76,16 +76,16 @@ if(!empty($_GET['r_card_item'])){
 	$_SESSION['prods_array'] = $new_array;
 	$res['data'] = $new_array; 
 	$res['status'] = "ok";
-	$tools->echo_json($res);
+	echo_json($res);
 }
 if(!empty($_GET['update_card'])){
-	$prods_array = $server->get_prods_array();
+	$prods_array = get_prods_array();
 	$res['data'] = $prods_array; 
 	$res['status'] = "ok";
-	$tools->echo_json($res);
+	echo_json($res);
 }
 if(!empty($_GET['checkout_registr'])){
-
+	
 	$error = array();
 	$error['error'] = NULL;
 
@@ -99,24 +99,19 @@ if(!empty($_GET['checkout_registr'])){
 
 	);
 	foreach($post as $k =>  $v){
-		$post[$k] = $server->test_input($post[$k]);	
+		$post[$k] = test_input($post[$k]);	
 
 	}
-	$error = $server->check_fields_data($post);
+	$error = check_fields_data($post);
 
 	if($error['error'] != NULL){
 		$str = "";	
 		foreach($error['field'] as $v){
 
-			$str .= " $v <br>";	
+			$str .= " $v ";	
 		}	
 		$loc = $data['baseurl'] . "checkout/?error=".$str;	
 		header('Location: '.$loc);
-	}else{
-
-
-
-
 	}
 
 }

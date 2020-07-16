@@ -1,10 +1,7 @@
 <?php 
 include_once('../init.php');
-include_once('../templ/parts/header.php');
+part('header');
 
+include_once('../view/pages/checkout.php');
 
-include_once('../templ/pages/checkout.php');
-
-
-
-include_once('../templ/parts/footer.php');
+part('footer');

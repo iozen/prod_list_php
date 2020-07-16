@@ -1,12 +1,14 @@
 <?php 
 include_once('../init.php');
-include_once('../templ/parts/header.php');
+
+part('header');
+
 $id = $_GET['id'];
 
 $q = "select * from prods where id=$id;";
-$prod = put_query($q);
+$prod = $db->put_query($q);
 $pr = $prod[0];
 
-include_once('../templ/pages/prod.php');
+include_once('../view/pages/prod.php');
 
-include_once('../templ/parts/footer.php');
+part('footer');
