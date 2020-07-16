@@ -9,10 +9,7 @@
 <input type="hidden" name="id" value="<?php echo $id;?>">
 <table>
 <?php foreach($cols_ready as $v){
-
 echo "<tr><td>$v</td><td><input name='$v' value='".$obj[$v]."'></td></tr>";
-
-
 }
 
 ?>

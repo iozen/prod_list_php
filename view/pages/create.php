@@ -8,8 +8,11 @@
 <input type="hidden" name="table" value="<?php echo $table;?>">
 <table>
 <?php foreach($cols_ready as $v){
+$ech= "<tr><td>$v</td><td><input name='$v'></td></tr>";
 
-echo "<tr><td>$v</td><td><input name='$v'></td></tr>";
+if($v == "status"){
+	$ech= "<tr><td>$v</td><td><input name='$v' value='1' type='hidden'></td></tr>";
+}
 
 }
 
