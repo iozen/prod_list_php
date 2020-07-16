@@ -14,10 +14,10 @@ if($v == "status"){
 	$ech = "<input name='$v' value='1' type='hidden'>";
 }
 if($v == "img"){
-	$ech = "<tr><td></td><td><input name='$v' value='pub/img/pr.svg'></td></tr>";
+	$ech = "<tr><td>$v</td><td><input name='$v' value='pub/img/pr.svg'></td></tr>";
 }
 if($v == "about"){
-	$ech = "<tr><td></td><td><textarea name='$v'></textarea></td></tr>";
+	$ech = "<tr><td>$v</td><td><textarea name='$v'></textarea></td></tr>";
 }
 echo $ech;
 }

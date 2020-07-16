@@ -11,10 +11,10 @@
 <?php foreach($cols_ready as $v){
 $ech = "<tr><td>$v</td><td><input name='$v' value='".$obj[$v]."'></td></tr>";
 if($v == "status"){
-	$ech = "";
+	$ech = "<input type='hidden' name='$v' value='1'>";
 }
 if($v == "about"){
-	$ech = "<tr><td></td><td><textarea name='$v'>".$obj[$v]."</textarea></td></tr>";
+	$ech = "<tr><td>$v</td><td><textarea name='$v'>".$obj[$v]."</textarea></td></tr>";
 }
 echo $ech;
 }
