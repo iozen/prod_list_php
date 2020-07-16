@@ -25,7 +25,7 @@ echo '
 <td>'.$v['name'].'</td>
 <td>'.$v['last_name'].'</td>
 <td>'.$v['email'].'</td>
-<td><a href="'.$data['baseurl'].'panel/edit_order/?id='.$v['order_id'].'">Редагувати</a></td>
+<td><a href="'.$data['baseurl'].'panel/edit_order/?id='.$v['order_id'].'">Деталі</a></td>
 </tr>
 
 ';
