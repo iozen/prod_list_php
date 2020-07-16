@@ -8,12 +8,18 @@
 <input type="hidden" name="table" value="<?php echo $table;?>">
 <table>
 <?php foreach($cols_ready as $v){
-$ech= "<tr><td>$v</td><td><input name='$v'></td></tr>";
+$ech = "<tr><td>$v</td><td><input name='$v'></td></tr>";
 
 if($v == "status"){
-	$ech= "<tr><td>$v</td><td><input name='$v' value='1' type='hidden'></td></tr>";
+	$ech = "<input name='$v' value='1' type='hidden'>";
 }
-
+if($v == "img"){
+	$ech = "<tr><td></td><td><input name='$v' value='pub/img/pr.svg'></td></tr>";
+}
+if($v == "about"){
+	$ech = "<tr><td></td><td><textarea name='$v'></textarea></td></tr>";
+}
+echo $ech;
 }
 
 ?>

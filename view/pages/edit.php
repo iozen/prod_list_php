@@ -9,7 +9,14 @@
 <input type="hidden" name="id" value="<?php echo $id;?>">
 <table>
 <?php foreach($cols_ready as $v){
-echo "<tr><td>$v</td><td><input name='$v' value='".$obj[$v]."'></td></tr>";
+$ech = "<tr><td>$v</td><td><input name='$v' value='".$obj[$v]."'></td></tr>";
+if($v == "status"){
+	$ech = "";
+}
+if($v == "about"){
+	$ech = "<tr><td></td><td><textarea name='$v'>".$obj[$v]."</textarea></td></tr>";
+}
+echo $ech;
 }
 
 ?>
