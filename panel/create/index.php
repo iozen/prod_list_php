@@ -3,11 +3,7 @@ include_once('../../init.php');
 part('header_panel');
 
 $table = $_GET['table'];
-$id = $_GET['id'];
 
-$q = "select * from $table where id=$id;";
-$obj = $db->put_query($q);
-$obj = $obj[0];
 $q = "select * from fields where t_able=$table;";
 $fields = $db->put_query($q);
 
@@ -20,6 +16,6 @@ foreach($cols as $k => $v){
 		array_push($cols_ready, $v['Field']);
 	}
 }
-include_once('../../view/pages/edit.php');
+include_once('../../view/pages/create.php');
 
 part('footer');

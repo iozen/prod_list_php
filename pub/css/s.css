@@ -87,3 +87,15 @@ header {
 .error_block{
     color: #ff1a1a;
 }
+/* panel */
+.panel_tlink{
+padding:5px;
+border: solid 1px #000;
+}
+.panel td {
+border-top:dashed 1px #ccc;
+border-right:dashed 1px #ccc;
+padding:3px;
+
+
+}

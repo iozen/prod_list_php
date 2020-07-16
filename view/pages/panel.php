@@ -1,7 +1,3 @@
-<div class="container" align="center">
-<h2>panel</h2>
-</div>
-
 
 <div class="container">
 <h3>Замовлення</h3>
