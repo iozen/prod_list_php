@@ -1,12 +1,11 @@
 <?php 
-header('Content-Type: application/json');
 
 session_cache_expire(1440);
 session_start();
 
 include_once('../init.php');
-include_once('../app/mod/tools.php');
-include_once('fun.php');
+include_once('../app/tools.php');
+include_once('../app/server.php');
 
 $res = array(
 	'status'=>0,
@@ -15,77 +14,7 @@ $res = array(
 );
 
 
-if(!empty($_GET['buy'])) {
 
-	$id = $_GET['buy'];
-	$prod = get_prod($id);
-
-	buy($id,$prod);
-	$prods_array = $_SESSION['prods_array'];
-
-	$res['data'] = $prods_array; 
-	$res['status'] = "ok";
-	echo_json($res);
-}
-if(!empty($_GET['add_quan'])){
-	$id = $_GET['add_quan'];
-	$prods_array = $_SESSION['prods_array'];
-	foreach($prods_array as $k => $v){
-		if($v['id'] == $id){
-			$prods_array[$k]['quantity']++;
-		}
-	}
-	$_SESSION['prods_array'] = $prods_array;
-	$res['data'] = $prods_array; 
-	$res['status'] = "ok";
-	echo_json($res);
-
-}
-
-if(!empty($_GET['remove_quan'])){
-	$id = $_GET['remove_quan'];
-
-	$prods_array = $_SESSION['prods_array'];
-	foreach($prods_array as $k => $v){
-		if($v['id'] == $id){
-			$prods_array[$k]['quantity']--;
-		}
-	}
-	$_SESSION['prods_array'] = $prods_array;
-	$res['data'] = $prods_array; 
-	$res['status'] = "ok";
-	echo_json($res);
-
-}
-
-if(!empty($_GET['r_card_item'])){
-	$id = $_GET['r_card_item'];
-	$prods_array = $_SESSION['prods_array'];
-	foreach($prods_array as $k => $v){
-		if($v['id'] == $id){
-			unset($prods_array[$k]);
-		}
-	}
-	$i = 0;
-	$new_array = array();	
-	foreach($prods_array as $v){
-		$new_array[$i] = $v;	
-		$i++;	
-	}
-
-	$_SESSION['prods_array'] = $new_array;
-	$res['data'] = $new_array; 
-	$res['status'] = "ok";
-	echo_json($res);
-}
-if(!empty($_GET['update_card'])){
-	$prods_array = get_prods_array();
-	$res['data'] = $prods_array; 
-	$res['status'] = "ok";
-	echo_json($res);
-}
-if(!empty($_GET['checkout_registr'])){
-	
 	$error = array();
 	$error['error'] = NULL;
 
@@ -99,19 +28,41 @@ if(!empty($_GET['checkout_registr'])){
 
 	);
 	foreach($post as $k =>  $v){
-		$post[$k] = test_input($post[$k]);	
+		$post[$k] = $server->test_input($post[$k]);	
 
 	}
-	$error = check_fields_data($post);
+	$error = $server->check_fields_data($post);
 
 	if($error['error'] != NULL){
 		$str = "";	
 		foreach($error['field'] as $v){
 
-			$str .= " $v ";	
+			$str .= " $v <br>";	
 		}	
 		$loc = $data['baseurl'] . "checkout/?error=".$str;	
 		header('Location: '.$loc);
+	}else{
+
+		$solr = $tools->make_rand(5);
+		$pass = $post['pass'] . $solr; 
+	        $post['pass'] = $tools->make_hash($pass);;
+	        $post['solr'] = $solr;	
+		
+		$usr_id = $db->put_user($post);
+		$prods_array = $server->get_prods_array();
+
+                $q = "insert into orders (usr_id, ip) values('$usr_id', '255.255.255.255');";
+	        $ord_id = $db->insert_order($q);
+
+		foreach($prods_array as $v){
+			$pr_id = $v['id'];
+                $q = "insert into orders_connection (prod_id, order_id) values('$pr_id', '$ord_id');";
+         	$db->put_query($q);	
+		
+		}
+
+		$loc = $data['baseurl'] . "panel/";	
+		header('Location: '.$loc);
+
 	}
 
-}

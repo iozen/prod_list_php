@@ -18,7 +18,7 @@ if(!empty($_GET['error'])){
 
 
 </div>
-<form method="POST" action="<?php echo $data['baseurl'];?>server/?checkout_registr=-">
+<form method="POST" action="<?php echo $data['baseurl'];?>server/registr.php">
 <table>
 <tr><td> Ім'я </td><td><input name="name" placeholder="Петро"></td></tr>
 <tr><td> Фамілія </td><td><input name="last_name" placeholder="Петрович"></td></tr>

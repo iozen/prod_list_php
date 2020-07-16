@@ -1,9 +1,9 @@
 <?php 
 include_once('init.php');
-include_once('view/parts/header.php');
 
 
-include_once('view/pages/home.php');
+part('header');
 
+page('home');
 
-include_once('view/parts/footer.php');
+part('footer');

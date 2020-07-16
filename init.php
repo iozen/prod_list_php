@@ -17,6 +17,6 @@ function part($name){
 	include_once('view/parts/'.$name.'.php');
 }
 function page($name){
-	include_once('view/page/'.$name.'.php');
+	include_once('view/pages/'.$name.'.php');
 }
 

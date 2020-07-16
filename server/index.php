@@ -84,39 +84,4 @@ if(!empty($_GET['update_card'])){
 	$res['status'] = "ok";
 	$tools->echo_json($res);
 }
-if(!empty($_GET['checkout_registr'])){
 
-	$error = array();
-	$error['error'] = NULL;
-
-	$post = array(
-		'name' => $_POST['name'],
-		'last_name' => $_POST['last_name'],
-		'pass' => $_POST['pass'],
-		'pass2' => $_POST['pass2'],
-		'email' => $_POST['email'],
-		'mobile' => $_POST['mobile']
-
-	);
-	foreach($post as $k =>  $v){
-		$post[$k] = $server->test_input($post[$k]);	
-
-	}
-	$error = $server->check_fields_data($post);
-
-	if($error['error'] != NULL){
-		$str = "";	
-		foreach($error['field'] as $v){
-
-			$str .= " $v <br>";	
-		}	
-		$loc = $data['baseurl'] . "checkout/?error=".$str;	
-		header('Location: '.$loc);
-	}else{
-
-
-
-
-	}
-
-}

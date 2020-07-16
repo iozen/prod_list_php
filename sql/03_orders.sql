@@ -1,5 +1,6 @@
 create table orders (
 	id int not null primary key auto_increment,
+	usr_id int,
 	ip varchar(45) not null, 
 	time timestamp 
 );

@@ -41,9 +41,10 @@ class Serv_utils {
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-	public function check_fields_data($post){
+	public function check_fields_data($post_data){
 
 
+		$error['error'] = NULL;
 		$error['code'] = [];
 
 		if (strlen($post_data['name']) >= 60) {
