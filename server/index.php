@@ -79,8 +79,39 @@ if(!empty($_GET['r_card_item'])){
 	echo_json($res);
 }
 if(!empty($_GET['update_card'])){
-	$prods_array = $_SESSION['prods_array'];
+	$prods_array = get_prods_array();
 	$res['data'] = $prods_array; 
 	$res['status'] = "ok";
 	echo_json($res);
+}
+if(!empty($_GET['checkout_registr'])){
+	
+	$error = array();
+	$error['error'] = NULL;
+
+	$post = array(
+		'name' => $_POST['name'],
+		'last_name' => $_POST['last_name'],
+		'pass' => $_POST['pass'],
+		'pass2' => $_POST['pass2'],
+		'email' => $_POST['email'],
+		'mobile' => $_POST['mobile']
+
+	);
+	foreach($post as $k =>  $v){
+		$post[$k] = test_input($post[$k]);	
+
+	}
+	$error = check_fields_data($post);
+
+	if($error['error'] != NULL){
+		$str = "";	
+		foreach($error['field'] as $v){
+
+			$str .= " $v ";	
+		}	
+		$loc = $data['baseurl'] . "checkout/?error=".$str;	
+		header('Location: '.$loc);
+	}
+
 }

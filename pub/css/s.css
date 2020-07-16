@@ -84,3 +84,6 @@ header {
     cursor:pointer;
 
 }
+.error_block{
+    color: #ff1a1a;
+}

@@ -28,7 +28,7 @@ function update_card_request(id, var_iable, type) {
             if (type != 'silent') {
                 $('.card_cont').show();
             }
-            $('.card_inner').html('<h3>Завантаження...............</h3>');
+            $('.card_inner').html('<h3>Завантаження...</h3>');
         },
         data: {}
     }).done(function(data) {
@@ -36,11 +36,10 @@ function update_card_request(id, var_iable, type) {
             $("body").data("prods_array", data.data);
             build_card(params);
         } else {
-
-            alert('reciving products error');
+            $('.card_inner').html('<h3>reciving products error...</h3>');
         }
     }).fail(function(data) {
-        alert('transmision error');
+            $('.card_inner').html('<h3>transmision error...</h3>');
     });
 }
 
