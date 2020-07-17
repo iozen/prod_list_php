@@ -49,13 +49,25 @@ class Serv_utils {
 
 		if (strlen($post_data['name']) >= 60) {
 			$error['error'] = 1;
-			$error['field']['name'] = "Name very logng.";
+			$error['field']['name'] = "Ім'я задовге";
 			array_push($error['code'], "001");
 		}
 
 		if (strlen($post_data['name']) <= 2) {
 			$error['error'] = 1;
-			$error['field']['name'] = "Name very short.";
+			$error['field']['name'] = "Ім'я закоротке";
+			array_push($error['code'], "002");
+		}
+
+		if (strlen($post_data['pass']) >= 60) {
+			$error['error'] = 1;
+			$error['field']['pass'] = "Значення пароля задовге";
+			array_push($error['code'], "001");
+		}
+
+		if (strlen($post_data['pass']) <= 2) {
+			$error['error'] = 1;
+			$error['field']['pass'] = "Значення пароля закоротке";
 			array_push($error['code'], "002");
 		}
 
@@ -66,13 +78,13 @@ class Serv_utils {
        }*/
 		if (strlen($post_data['last_name']) >= 60) {
 			$error['error'] = 1;
-			$error['field']['last_name'] = "Last Name very logng.";
+			$error['field']['last_name'] = "Фамілія задовга!";
 			array_push($error['code'], "004");
 		}
 
 		if (strlen($post_data['last_name']) <= 2) {
 			$error['error'] = 1;
-			$error['field']['last_name'] = "Last Name very short.";
+			$error['field']['last_name'] = "Фамілія закоротка!";
 			array_push($error['code'], "005");
 		}
        /* 
@@ -84,7 +96,7 @@ class Serv_utils {
 	*/
 		if (!filter_var($post_data['email'], FILTER_VALIDATE_EMAIL)) {
 			$error['error'] = 1;
-			$error['field']['email'] = "Invalid email format";
+			$error['field']['email'] = "Неправельний формат e-mail";
 			array_push($error['code'], "007");
 
 		}
