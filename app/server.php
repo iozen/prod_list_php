@@ -83,13 +83,13 @@ class Serv_utils {
        }*/
 		if (strlen($post_data['last_name']) >= 60) {
 			$error['error'] = 1;
-			$error['field']['last_name'] = "Фамілія задовга!";
+			$error['field']['last_name'] = "Фамілія задовга";
 			array_push($error['code'], "004");
 		}
 
 		if (strlen($post_data['last_name']) <= 2) {
 			$error['error'] = 1;
-			$error['field']['last_name'] = "Фамілія закоротка!";
+			$error['field']['last_name'] = "Фамілія закоротка";
 			array_push($error['code'], "005");
 		}
        /* 
@@ -101,7 +101,7 @@ class Serv_utils {
 	*/
 		if (!filter_var($post_data['email'], FILTER_VALIDATE_EMAIL)) {
 			$error['error'] = 1;
-			$error['field']['email'] = "Неправельний формат e-mail";
+			$error['field']['email'] = "Неправильний формат e-mail";
 			array_push($error['code'], "007");
 
 		}
