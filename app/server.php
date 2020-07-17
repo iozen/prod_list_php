@@ -48,7 +48,7 @@ class Serv_utils {
 		$error['code'] = [];
 		if($post_data['pass'] != $post['pass2']){
 			$error['error'] = 1;
-			array_push($error['field']['pass'], "Паролі не співпадають");
+			$error['field']['pass'] = "Паролі не співпадають";
 			array_push($error['code'], "100");
 		}
 
