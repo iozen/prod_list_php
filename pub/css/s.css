@@ -99,3 +99,9 @@ padding:3px;
 
 
 }
+.form_blok_ec{
+    display: flex;
+}
+.for_toch{
+cursor:pointer;
+}

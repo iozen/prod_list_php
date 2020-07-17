@@ -5,13 +5,9 @@
 	<title>Store sketch</title>
 	<link rel="stylesheet" href="<?php echo $GLOBALS['data']['baseurl']; ?>pub/css/s.css" />
 	<script type="text/javascript" src="<?php echo  $GLOBALS['data']['baseurl'];?>pub/jquery/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
-var params = {
- baseurl: "<?php echo $data['baseurl'];?>"
-      }
-</script>
+	<script type="text/javascript" src="<?php echo  $GLOBALS['data']['baseurl'];?>pub/app_panel.js"></script>
 </head>
-<body onload="init(params);" class="panel">
+<body class="panel" onload="changing_img();">
 <header>
 <div class="container">
 <a class="panel_tlink" href="<?php echo $GLOBALS['data']['baseurl'];?>panel/">Замовлення</a>
