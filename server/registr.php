@@ -35,10 +35,6 @@ $res = array(
 	$error = $server->check_fields_data($post);
 
 
-	if($post['pass'] != $post['pass2']){
-		$error['error'] = 1;
-		array_push($error['field'], "Паролі не співпадають!");
-	}
 
 	if($error['error'] != NULL){
 		$str = "";	
